@@ -1,7 +1,7 @@
 #include "queue.h"
 #include "tile_game.h"
 
-#define VISITED_SIZE 1000000
+#define VISITED_SIZE 1000003 //needs to be prime
 char visited[VISITED_SIZE] = {0};
 
 void enqueue(struct queue *q, struct game_state state) 
