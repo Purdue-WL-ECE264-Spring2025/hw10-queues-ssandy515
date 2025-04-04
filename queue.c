@@ -8,7 +8,6 @@ void enqueue(struct queue *q, struct game_state state)
 {
     size_t temp = serialize(state);
     insert_at_head(&q->data,temp);
-
 }
 
 struct game_state dequeue(struct queue *q) 
@@ -95,5 +94,5 @@ int number_of_moves(struct game_state start)
         }
     }
     free_list(q.data);
-    return -1; // No solution found
+    return -1;
 }
