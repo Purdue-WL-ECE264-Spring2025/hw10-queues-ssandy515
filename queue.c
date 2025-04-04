@@ -1,7 +1,7 @@
 #include "queue.h"
 #include "tile_game.h"
 
-#define VISITED_SIZE 1000003
+#define VISITED_SIZE 1000000
 char visited[VISITED_SIZE] = {0};
 
 void enqueue(struct queue *q, struct game_state state) 
@@ -48,6 +48,7 @@ int number_of_moves(struct game_state start)
 
         if (match(cur.tiles)) 
         {
+            free_list(q.data);
             return cur.num_steps;
         }
 
@@ -93,6 +94,6 @@ int number_of_moves(struct game_state start)
             enqueue(&q, next);
         }
     }
-
+    free_list(q.data);
     return -1; // No solution found
 }
